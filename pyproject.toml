@@ -1,0 +1,21 @@
+[build-system]
+build-backend = "cmeel"
+requires = ["cmeel-gmp", "cmeel-mpc", "cmeel-mpfr", "cmeel-texinfo", "cmeel[build]"]
+
+[project]
+description = "cmeel distribution for libgfortran"
+license = "GPL-3.0-or-later"
+name = "cmeel-libgfortran"
+requires-python = ">= 3.8"
+version = "13.1.0"
+
+[project.urls]
+homepage = "https://github.com/cmake-wheel/cmeel-libgfortran"
+repository = "https://github.com/cmake-wheel/cmeel-libgfortran.git"
+
+[tool.cmeel]
+py3-none = true
+run-tests = false
+
+[tool.tomlsort]
+all = true
