@@ -22,8 +22,8 @@ jobs:
       - run: ls /
       - run: ls /Users
       - run: ls /Users/*
-      - run: find / -name MacOSX.platform
-      - run: find / -name MacOSX.sdk
+      - run: find /Applications -name MacOSX.platform
+      - run: find /Applications -name MacOSX.sdk
       #- run: python -m pip wheel -vw wh .
         #env:
           #CMEEL_JOBS: 1
