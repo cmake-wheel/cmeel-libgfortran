@@ -13,6 +13,7 @@ jobs:
     name: "macos"
     runs-on: "macos-latest"
     steps:
+      - run: xcrun --sdk macosx --show-sdk-path
       - uses: actions/checkout@v3
         with:
           submodules: 'true'
@@ -23,6 +24,7 @@ jobs:
       - run: python -m pip wheel -vw wh .
         env:
           LDFLAGS: "-L${{ env.OSX_SDK }}/usr/lib"
+          LIBRARY_PATH: "-L${{ env.OSX_SDK }}/usr/lib"
           CMEEL_CMAKE_ARGS: "-DSYSTEM_INCLUDEDIR=${{ env.OSX_SDK }}/usr/include"
       - uses: actions/upload-artifact@v3
         with:
