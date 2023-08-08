@@ -19,11 +19,16 @@ jobs:
         with:
           python-version: "3.11"
       - run: python -m pip install -U pip
-      - run: ls /
-      - run: ls /Users
-      - run: ls /Users/*
-      - run: find /Applications -name MacOSX.platform
-      - run: find /Applications -name MacOSX.sdk
+      - run: ls /Applications/Xcode_14.2.app/
+      - run: ls /Applications/Xcode_14.2.app/Contents/
+      - run: ls /Applications/Xcode_14.2.app/Contents/Developer/
+      - run: ls /Applications/Xcode_14.2.app/Contents/Developer/Platforms/
+      - run: ls /Applications/Xcode_14.2.app/Contents/Developer/Platforms/MacOSX.platform/
+      - run: ls /Applications/Xcode_14.2.app/Contents/Developer/Platforms/MacOSX.platform/Developer/
+      - run: ls /Applications/Xcode_14.2.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/
+      - run: ls /Applications/Xcode_14.2.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk
+      - run: ls /Applications/Xcode_14.2.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr
+      - run: ls /Applications/Xcode_14.2.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include
       #- run: python -m pip wheel -vw wh .
         #env:
           #CMEEL_JOBS: 1
