@@ -15,7 +15,9 @@ else()
       CACHE STRING "number of build jobs")
 endif()
 
-set(SYSTEM_INCLUDEDIR CACHE STRING "native system header dir" "/usr/include")
+set(SYSTEM_INCLUDEDIR
+    "/usr/include"
+    CACHE STRING "native system header dir")
 
 include(FindPkgConfig)
 pkg_check_modules(GMP REQUIRED gmp)
