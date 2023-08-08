@@ -18,10 +18,13 @@ jobs:
       - uses: actions/setup-python@v4
         with:
           python-version: "3.11"
-      - run: python -m pip install -U pip
-      - run: python -m pip wheel -vw wh .
-        env:
-          CMEEL_CMAKE_ARGS: "-DSYSTEM_INCLUDEDIR=/Applications/Xcode_14.2.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include"
+      - run: find /Applications/Xcode_14.2.app/Contents/Developer -name include
+      - run: find /Applications/Xcode_14.2.app/Contents/Developer -name lib
+      - run: find /Applications/Xcode_14.2.app/Contents/Developer -name \*System\*
+      #- run: python -m pip install -U pip
+      #- run: python -m pip wheel -vw wh .
+        #env:
+          #CMEEL_CMAKE_ARGS: "-DSYSTEM_INCLUDEDIR=/Applications/Xcode_14.2.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include"
       - uses: actions/upload-artifact@v3
         with:
           path: wh
