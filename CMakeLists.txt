@@ -15,6 +15,8 @@ else()
       CACHE STRING "number of build jobs")
 endif()
 
+set(SYSTEM_INCLUDEDIR CACHE STRING "native system header dir" "/usr/include")
+
 include(FindPkgConfig)
 pkg_check_modules(GMP REQUIRED gmp)
 pkg_check_modules(MPFR REQUIRED mpfr)
@@ -33,9 +35,9 @@ ExternalProject_Add(
   CONFIGURE_COMMAND
     ${CMAKE_COMMAND} "-E" "env" ${LIB_PATH} "--" "../${NAME}/configure"
     "--prefix=${CMAKE_INSTALL_PREFIX}/tmp" "--with-gmp=${GMP_PREFIX}"
-    "--with-mpfr=${MPFR_PREFIX}" "--with-mpc=${GMP_PREFIX}" # this is not super
-                                                            # nice.
-    "--disable-multilib" "--enable-lto" "--disable-bootstrap" "VERBOSE=1"
+    "--with-mpfr=${MPFR_PREFIX}" "--with-mpc=${GMP_PREFIX}" # this is not nice.
+    "--with-native-system-header-dir=${SYSTEM_INCLUDEDIR}" "--disable-multilib"
+    "--enable-lto" "--disable-bootstrap" "VERBOSE=1"
   BUILD_COMMAND ${LIB_PATH} "make" "VERBOSE=1" "-j${CMEEL_JOBS}"
   INSTALL_COMMAND ${LIB_PATH} "make" "install" "VERBOSE=1"
   COMMAND ${CMAKE_COMMAND} "-E" "make_directory" "${CMAKE_INSTALL_PREFIX}/lib"
