@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.20)
 
 set(NAME libgfortran)
-set(VERSION 13.1.0)
+set(VERSION 13.2.0)
 
 project(cmeel-${NAME} VERSION ${VERSION})
 
@@ -29,7 +29,8 @@ include(ExternalProject)
 ExternalProject_Add(
   ${NAME}
   URL "https://ftpmirror.gnu.org/gcc/gcc-${VERSION}/gcc-${VERSION}.tar.xz"
-      DOWNLOAD_EXTRACT_TIMESTAMP OFF
+  URL_HASH "SHA1=5f95b6d042fb37d45c6cbebfc91decfbc4fb493c"
+  DOWNLOAD_EXTRACT_TIMESTAMP OFF
   CONFIGURE_COMMAND
     ${CMAKE_COMMAND} "-E" "env" ${LIB_PATH} "--" "../${NAME}/configure"
     "--prefix=${CMAKE_INSTALL_PREFIX}/tmp" "--with-gmp=${GMP_PREFIX}"
