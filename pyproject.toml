@@ -12,6 +12,7 @@ version = "13.2.0"
 [project.urls]
 homepage = "https://github.com/cmake-wheel/cmeel-libgfortran"
 repository = "https://github.com/cmake-wheel/cmeel-libgfortran.git"
+upstream = "https://gcc.gnu.org/fortran/"
 
 [tool.cmeel]
 has-sitelib = false
