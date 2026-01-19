@@ -6,7 +6,7 @@ requires = ["cmeel-gmp", "cmeel-mpc", "cmeel-mpfr", "cmeel-texinfo", "cmeel[buil
 description = "cmeel distribution for libgfortran"
 license = "GPL-3.0-or-later"
 name = "cmeel-libgfortran"
-requires-python = ">= 3.8"
+requires-python = ">= 3.10"
 version = "13.2.0"
 
 [project.urls]
