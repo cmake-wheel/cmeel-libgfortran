@@ -1,9 +1,11 @@
 cmake_minimum_required(VERSION 3.20)
 
 set(NAME libgfortran)
-set(VERSION 13.2.0)
+set(VERSION 15.2.0)
+set(EXT tar.xz)
+set(SHA256 438fd996826b0c82485a29da03a72d71d6e3541a83ec702df4271f6fe025d24e)
 
-project(cmeel-${NAME} VERSION ${VERSION})
+project("cmeel-${NAME}" VERSION "${VERSION}")
 
 if(DEFINED ENV{CMEEL_JOBS})
   set(CMEEL_JOBS
@@ -28,8 +30,8 @@ endif()
 include(ExternalProject)
 ExternalProject_Add(
   ${NAME}
-  URL "https://ftpmirror.gnu.org/gcc/gcc-${VERSION}/gcc-${VERSION}.tar.xz"
-  URL_HASH "SHA1=5f95b6d042fb37d45c6cbebfc91decfbc4fb493c"
+  URL "https://ftpmirror.gnu.org/gcc/gcc-${VERSION}/gcc-${VERSION}.${EXT}"
+  URL_HASH "SHA256=${SHA256}"
   DOWNLOAD_EXTRACT_TIMESTAMP OFF
   CONFIGURE_COMMAND
     ${CMAKE_COMMAND} "-E" "env" ${LIB_PATH} "--" "../${NAME}/configure"
@@ -48,4 +50,4 @@ ExternalProject_Add(
   COMMAND ${CMAKE_COMMAND} "-E" "rm" "-r" "${CMAKE_INSTALL_PREFIX}/tmp")
 
 # dummy file for install target
-install(FILES README.md DESTINATION share/cmeel-${NAME}/)
+install(FILES "README.md" DESTINATION "share/cmeel-${NAME}/")
